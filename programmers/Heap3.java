@@ -1,62 +1,74 @@
-package algori;
+package practice;
+
+//// 느낀점
+//1. 전체적으로 라면공장 문제와 많이 유사했다.
+//2. 그래서 이름은 모르지만 목요일날 알고리즘을 굳이 알지 못해도 풀수 있었던 것 같다.
+//3. compareto의 조건문만 잘 건드리면 되는 문제였다.
+//
+//사족: 알바하고 하는 코딩이 오히려 잘되는 것 같다. 힘이 다 빠져서 그런가 너무 긴장하지 않고
+//풀면 되는 것 같다. 마치 음주 코딩처럼. 하지만 몸에 무리가 가는건 백퍼 확실.
+//
+//총 풀이시간: 목요일 스터디 시간 40분 포함 1시간 40분
+
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.PriorityQueue;
-import java.util.Queue;
-
-class fulfill implements Comparable<fulfill> {
-	int jobs;
-
-	public fulfill(int jobs) {
-		this.jobs = jobs;
-	}
-
-	// 공급량이 많을수록 공급 날짜가 빠를수록 더 우선순위를 줌
-	@Override
-	public int compareTo(fulfill o) {
-		if (this.jobs < o.jobs) {
-			return -1;
-		} else 
-			return 1;
-	}
+ 
+class Job implements Comparable<Job> {
+    int start;
+    int workTime;
+    
+    public Job(int start, int time) {
+        this.start = start;
+        this.workTime = time;
+    }
+    
+    //걸리는 소요시간이 짧을수록, 시작 시간이 짧을 수록 우선수위를 높게함
+    
+    @Override
+    public int compareTo(Job o) {
+        if (this.workTime < o.workTime) return -1;
+        else if (this.workTime == o.workTime) {
+            if (this.start < o.start) return -1;
+            else return 1;
+        } else return 1;
+    }
 }
-
-public class Heap3 {
-
-	public static void main(String[] args) {
-		int[][] jobs = { { 0, 3 }, { 1, 9 }, { 2, 6 } };
-		System.out.println(solution(jobs));
-	}
-
-	public static int solution(int[][] jobs) {
-		
-		Queue<fulfill> heap = new PriorityQueue<>();
-		ArrayList<fulfill> list = new ArrayList<fulfill>();
-		for(int i =0;i<jobs.length;i++) {
-			heap.offer(new fulfill(jobs[i][1]));
-			list.add(heap.poll());
-		}
-		int min = jobs[0][1];
-		int[] cal = new int[jobs.length];
-		
-		while(true) {
-			for(int i =1;i<list.size();i++) {
-				if(min<list.get(i).jobs)
-				min = min+list.get(i).jobs-jobs[i][0];
-				heap.offer(new fulfill(min));
-				list.add(heap.poll());
-			}
-			
-			if(list.size()==0) {
-				break;
-			}
-		}
-		
-		int sum=0;
-		for(int i =0;i<cal.length;i++) {
-			sum+=cal[i];
-		}
-		return sum/3;
-		
-	}
+ 
+class Heap3 {
+    public int solution(int[][] jobs) {
+        PriorityQueue<Job> pq = new PriorityQueue<>();
+        List<Job> list = new ArrayList<>();
+        
+        
+        for (int i = 0; i < jobs.length; i++) {
+            pq.add(new Job(jobs[i][0], jobs[i][1]));
+        }
+        
+        for (int i = 0; i < jobs.length; i++) {
+            list.add(pq.poll());
+        }
+        
+        int time = 0;
+        int sum = 0;
+        while (list.size()>0) {
+            for (int i = 0; i < list.size(); i++) {
+            	
+                //시작시간이 현재 시간보다 이전이라면 시작 가능
+                if (time>=list.get(i).start) {
+                    time+=list.get(i).workTime;
+                    sum+=time-list.get(i).start;
+                    list.remove(i);
+                    break;
+                }
+                
+                //시작시간이 현재 시간보다 이전인 것이 없다면 시간 1초 증가
+                if (i == list.size()-1) time++;
+            }
+        }
+        
+        int answer = (sum/jobs.length);
+        return answer;
+    }
 }
