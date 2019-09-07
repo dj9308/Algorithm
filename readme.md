@@ -47,4 +47,16 @@
 
 ### 2.7.  동적 계획법(Dynamic  Programming)
 
-- 타일 장식물
+- 타일 장식물 [링크](https://programmers.co.kr/learn/courses/30/lessons/43104) [풀이](https://github.com/dj9308/algorithm/blob/master/programmers/Tile.java)
+- 도둑질 [링크](https://programmers.co.kr/learn/courses/30/lessons/42897) [풀이](https://github.com/dj9308/algorithm/blob/master/programmers/GTA.java)
+
+### 2.8.  깊이/너비 우선 탐색 (DFS/BFS)
+
+- 타겟 넘버 [링크](https://programmers.co.kr/learn/courses/30/lessons/43165) [풀이](https://github.com/dj9308/algorithm/blob/master/programmers/TargetNumber.java)
+- 네트워크 [링크](https://programmers.co.kr/learn/courses/30/lessons/43162) [풀이](https://github.com/dj9308/algorithm/blob/master/programmers/two.java)
+- 단어 변환 [링크](https://programmers.co.kr/learn/courses/30/lessons/43163) [풀이](https://github.com/dj9308/algorithm/blob/master/programmers/one.java)
+
+### 2.9. 그래프
+
+- 가장 먼 노드 [링크](https://programmers.co.kr/learn/courses/30/lessons/49189) [풀이](https://github.com/dj9308/algorithm/blob/master/programmers/farthestNode.java)
+
