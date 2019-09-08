@@ -60,3 +60,8 @@
 
 - 가장 먼 노드 [링크](https://programmers.co.kr/learn/courses/30/lessons/49189) [풀이](https://github.com/dj9308/algorithm/blob/master/programmers/farthestNode.java)
 
+### 3.0. 2018 KAKAO BLIND RECRUITMENT
+
+- 오픈채팅방 [링크](https://programmers.co.kr/learn/courses/30/lessons/42888) [풀이](https://github.com/dj9308/algorithm/blob/master/programmers/OpenKatalk.java)
+- 실패율 [링크](https://programmers.co.kr/learn/courses/30/lessons/42889) [풀이](https://github.com/dj9308/algorithm/blob/master/programmers/FailRate.java)
+
