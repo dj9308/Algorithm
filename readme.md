@@ -4,9 +4,9 @@
 
 ### week_1
 
-- 놀라운 문자열(1972)  [링크](https://www.acmicpc.net/problem/1972) [풀이]()
-- 스택(10828) [링크](https://www.acmicpc.net/problem/10828) [풀이]()
-- 제로(10773) [링크](https://www.acmicpc.net/problem/10773) [풀이]()
+- 놀라운 문자열(1972)  [링크](https://www.acmicpc.net/problem/1972) [풀이](https://github.com/dj9308/Algorithm/blob/master/백준/No_1972.java)
+- 스택(10828) [링크](https://www.acmicpc.net/problem/10828) [풀이](https://github.com/dj9308/Algorithm/blob/master/백준/Stack.java)
+- 제로(10773) [링크](https://www.acmicpc.net/problem/10773) [풀이](https://github.com/dj9308/Algorithm/blob/master/백준/Stack1.java)
 
 ## 2. 프로그래머스
 
