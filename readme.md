@@ -2,9 +2,11 @@
 
 ## 1. 백준알고리즘
 
+### week_1
 
-
-
+- 놀라운 문자열(1972)  [링크](https://www.acmicpc.net/problem/1972) [풀이]()
+- 스택(10828) [링크](https://www.acmicpc.net/problem/10828) [풀이]()
+- 제로(10773) [링크](https://www.acmicpc.net/problem/10773) [풀이]()
 
 ## 2. 프로그래머스
 
