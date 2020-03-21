@@ -9,7 +9,6 @@ public class No_9093 {
 		Scanner sc = new Scanner(System.in);
 		Stack<String> stack = new Stack<String>();
 		int time = Integer.parseInt(sc.next());
-		System.out.println(time);
 		sc.nextLine();
 		for(int i=0;i<time;i++) {
 			String answer ="";
