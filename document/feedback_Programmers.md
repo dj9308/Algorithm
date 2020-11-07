@@ -1,8 +1,6 @@
 # 피드백 및 알게된 것
 
-## Programmers
-
-### Stack-queue 
+## Stack-queue 
 
 - #### [주식가격](https://programmers.co.kr/learn/courses/30/lessons/42584)
 
@@ -65,3 +63,13 @@
   - 우선순위큐를 생각했지만, 적용방법도 제대로 모를 뿐더러 그것만 집착해서 다른 방법을 생각하지 못했다. 
   - 문제 자체는 어렵지 않지만 이해하지 않고 바로 풀려고하니 시간이 오래걸린 듯.
   - 문제를 다 읽고 어떻게 풀지 생각을 할 것.
+
+  ## Hash
+
+  - [완주하지 못한 선수](https://programmers.co.kr/learn/courses/30/lessons/42576)
+    - 정확성은 맞지만 효율성에서 문제가 생김
+    - 시간복잡도: O(j+i*j)
+  - contain 함수를 쓰려고 했으나 시도 경로 자체를 잘못한듯
+    - 
+  
+  
