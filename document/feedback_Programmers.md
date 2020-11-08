@@ -66,11 +66,38 @@
 
   ## Hash
 
-  - [완주하지 못한 선수](https://programmers.co.kr/learn/courses/30/lessons/42576)
+  - ### [완주하지 못한 선수](https://programmers.co.kr/learn/courses/30/lessons/42576)
+    
     - 정확성은 맞지만 효율성에서 문제가 생김
     - 시간복잡도: O(n)
-  - contain 함수를 쓰려고 했으나 시도 경로 자체를 잘못한듯
-  - Hash라는 힌트를 줬다고 해서 꼭 그것을 쓸 필요는 없다.
-  
-  
+    - contain 함수를 쓰려고 했으나 시도 경로 자체를 잘못한듯
+    - Hash라는 힌트를 줬다고 해서 꼭 그것을 쓸 필요는 없다.
+    
+  - ### [전화번호 목록](https://programmers.co.kr/learn/courses/30/lessons/42577)
+
+    - String 부분 표현 관련 함수를 외워두면 편할 것 같다.
+    - Arrays.sort()를 할 경우, length와는 상관없이 정렬된다. 
+
+    - ```java
+              for(int i=0;i<phone_book.length;i++) {
+              	for(int j=0;j<phone_book.length;j++) {
+              		if(i==j) continue;
+                      //indexof: 해당 String이 들어있으면 해당 index를 반환한다.
+              		if(phone_book[j].indexOf(phone_book[i])==0) {
+                          //if(phoneBook[i].startsWith(phoneBook[j])) {return false;}
+                          // startWith함수를 써도 된다.
+              			answer = false;
+              		}
+              	}
+              	if(!answer) break;
+              }
+      ```
+
+
+## 알게된 함수
+
+### String 관련
+
+- indexOf(String) : 파라미터 string이 있을경우 index를 반환한다.
+- startwith(String) : 파라미터의 string으로 시작할 경우 true를 반환한다.
 
