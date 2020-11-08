@@ -92,6 +92,12 @@
               	if(!answer) break;
               }
       ```
+    
+  - ### [위장](https://programmers.co.kr/learn/courses/30/lessons/42578)
+  
+    - 경우의 수를 이해해야 함
+    - Hash의 사용 목적을 분명히 해야 할듯
+    - 경우의 수를 이용해 수를 세야 함 - 각 종류마다 갯수를 세야함 - Hash를 이용해 key를 종류, value를 갯수로 정하고 세기 - key의 종류에 맞춰 경우의 수 식 세우고 값 도출하기
 
 
 ## 알게된 함수
