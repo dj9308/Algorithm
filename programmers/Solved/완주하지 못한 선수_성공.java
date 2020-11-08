@@ -1,26 +1,18 @@
 package algorithm;
 
+import java.util.Arrays;
 
 public class hashMap1 {
 
 	public static String solution(String[] participant, String[] completion) {
-		String answer = "";
-		for(int i=0;i<participant.length;i++) {
-			boolean check = true;
-			for(int j=0;j<completion.length;j++) {
-				if(participant[i].equals(completion[j])) {
-					completion[j]=null;
-					check = false;
-					break;
-				}
-			}
-			if(check) {
-				answer = participant[i];
-				break;
-			}
+		Arrays.sort(participant);
+		Arrays.sort(completion);
+        int i;
+		for(i=0;i<completion.length;i++) {
+			if(!participant[i].equals(completion[i]))		
+				return participant[i];
 		}
-		
-		return answer;
+		return participant[i];
 	}
 	
 	public static void main(String[] args) {
