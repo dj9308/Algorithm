@@ -72,12 +72,13 @@
     - 시간복잡도: O(n)
     - contain 함수를 쓰려고 했으나 시도 경로 자체를 잘못한듯
     - Hash라는 힌트를 줬다고 해서 꼭 그것을 쓸 필요는 없다.
-    
-  - ### [전화번호 목록](https://programmers.co.kr/learn/courses/30/lessons/42577)
-
+    - != 와 equal 함수를 햇깔리지 말자. !=의 경우, 참조값만 비교하는 것이고, equals는 내용까지 비교하는 것이다.
+  
+- ### [전화번호 목록](https://programmers.co.kr/learn/courses/30/lessons/42577)
+  
     - String 부분 표현 관련 함수를 외워두면 편할 것 같다.
-    - Arrays.sort()를 할 경우, length와는 상관없이 정렬된다. 
-
+  - Arrays.sort()를 할 경우, length와는 상관없이 정렬된다. 
+  
     - ```java
               for(int i=0;i<phone_book.length;i++) {
               	for(int j=0;j<phone_book.length;j++) {
