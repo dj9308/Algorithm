@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-int number, data[1000001]; // 배열의 index는 0부터 시작해서 1추가 
+
+//int data[1000001];
 
 int quickSort(int *data, int start, int end){
 	if(start>=end){
@@ -36,7 +37,7 @@ int quickSort(int *data, int start, int end){
 
 int main(void){
 	int number;
-	int data[1000000];
+	int data[100];  // 왜 함수 안에 들어오면 안되지? 
 	
 	scanf("%d", &number);
 	for(int i=0;i<number; i++){
