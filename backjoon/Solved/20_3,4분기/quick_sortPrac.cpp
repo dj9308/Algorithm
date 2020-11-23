@@ -1,14 +1,16 @@
 #include <stdio.h>
 
-int number, data[1000001]; // 배열의 index는 0부터 시작해서 1추가 
-
+int number;
+int data[1000001];
+	
 int quickSort(int *data, int start, int end){
+	
 	if(start>=end){
 		return data[start];
 	}
 	
 	int key = start;
-	int i= start+1;
+	int i = start+1;
 	int j = end;
 	int temp;
 	
@@ -30,23 +32,20 @@ int quickSort(int *data, int start, int end){
 			data[j] = temp;
 		}
 	}
-		quickSort(data,start,j-1);
-		quickSort(data,j+1,end);
+	quickSort(data,start,j-1);
+	quickSort(data,j+1,end);
 }
 
 int main(void){
-	int number;
-	int data[1000000];
-	
-	scanf("%d", &number);
-	for(int i=0;i<number; i++){
-		scanf("%d", &data[i]);
-	} 
-	
+	scanf("%d",&number);
+	for(int i=0;i<number;i++){
+		scanf("%d",&data[i]);
+	}
 	quickSort(data,0,number-1);
 	
 	for(int i=0;i<number;i++){
 		printf("%d\n",data[i]);
 	}
+	
 	return 0;
 }

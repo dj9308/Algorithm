@@ -183,3 +183,98 @@
   - 1,2,3,4,5,6,7,8,9,10 처럼 거의 정렬된 배열의 경우, 퀵 정렬의 시간 복잡도는 O(N^2)에 가까워진다.
   - 한 바퀴 돌았을때 엇갈리지 않기 때문에, 정렬 된 것은 피벗 값 하나만 되기 때문이다.
   - 이때는 주로 삽입정렬을 사용한다.
+
+## 병합 정렬
+
+- 병합 정렬도 대표적인 '분할 정복' 방법을 채택한 알고리즘이다.
+
+- 결과적으로 퀵 정렬과 동일하게 O(N * logN)의 시간 복잡도를 가진다.
+
+- 편향되게 분할할 가능성이 있는 퀵 정렬과 달리, 병합 정렬은 정확히 반절씩 나눈다는 점에서 최악의 경우에도 시간복잡도는 같다. 대신 퀵 정렬보다 다소 느릴 수 있다.
+
+- 병합 정렬은 하나의 큰 문제를 두 개의 작은 문제로 분할한 뒤에 각자 계산하고 나중에 합치는 방법을 채택한다.
+
+- 즉, 정확히 반으로 나누고 나중에 정렬한다.
+
+- 처음부터 반으로 나누기 때문에, 피벗값이 없고 단계의 크기가 logN이 보장된다.
+
+- 너비는 N, 높이는 logN이 된다. 예를 들어, 너비가 8인 배열이 있을 경우, 높이는 log(작은)2의8이니 3이 된다. 즉 계층간 지수적으로 차이가 난다.
+
+- 너비가 N인 이유는 계층에 올라가면 이미 정렬된 상태에서 또 정렬을 하기 때문에 N * N이 아닌 N으로 계산이 가능해진다.
+
+- 
+
+  ```c
+  #include <stdio.h>
+  
+  int number = 8;
+  int sorted[8]; // 정렬 배열은 반드시 전역 변수로 만들어줘야 한다.
+  
+  void merge(int a[], int m, int middle, int n){ // 시작점, 중간점, 끝점 
+  	int i = m;
+  	int j = middle+1;
+  	int k = m;	// 합칠 배열의 인덱스 
+  	// 작은 순서대로 배열에 삽입
+  	while(i<=middle && j<=n){
+  		if(a[i] <= a[j]){
+  			sorted[k] = a[i];
+  			i++;
+  		}else{
+  			sorted[k]=a[j];
+  			j++;
+  		}
+  		k++;	// 다음 원소의 값을 받을 수 있도록 준비. 
+  	} 
+  	// 남은 데이터도 삽입
+  	if(i > middle){
+  		for(int t = j; t<=n; t++){
+  			sorted[k] = a[t];
+  			k++;
+  		}
+  	}else{
+  		for(int t = i; t<=middle; t++){
+  			sorted[k] = a[t];
+  			k++;
+  		}
+  	} 
+  	//정렬된 배열 삽입
+  	for(int t = m; t<=n; t++){
+  		a[t] = sorted[t];
+  	} 
+  }
+  
+  void mergeSort(int a[], int m, int n){
+  	// 크기가 1보다 큰 경우 
+  	if(m<n){
+  		int middle = (m+n)/2;
+  		mergeSort(a,m,middle);
+  		mergeSort(a,middle+1,n);
+  		merge(a,m,middle,n);
+  	}
+  }
+  
+  int main(void){
+  	int array[number] = {7,6,5,8,3,5,9,1};
+  	mergeSort(array, 0, number-1);
+  	for(int i=0;i<number;i++){
+  		printf("%d ", array[i]);
+  	}
+  	return 0;
+  } 
+  
+  ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
