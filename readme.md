@@ -17,3 +17,8 @@
 
 ## [Backjoon](https://www.acmicpc.net/)
 
+| Date       | Subject | Algorithm                                            | Solve |
+| ---------- | ------- | ---------------------------------------------------- | ----- |
+| 2020/11/23 | Sort    | [수 정렬하기](https://www.acmicpc.net/problem/2750)  | ✅     |
+| 2020/11/23 | Sort    | [수 정렬하기2](https://www.acmicpc.net/problem/2751) | ✅     |
+

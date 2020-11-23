@@ -1,20 +1,45 @@
 #include <stdio.h>
 
-int main(void){
-	int i, j, temp, min, index;
-	int array[10] = {1,10,5,8,7,6,4,3,2,9};
+int number = 10;
+int data[10] = {1,10,5,8,7,6,4,3,2,9};
+
+void quickSort(int *data, int start, int end){
+	if(start >= end){
+		return;
+	}
 	
-	for(i=0;i<10;i++){
-		for(j=0;j<9-i;j++){
-			if(array[j]>array[j+1]){
-				temp = array[j];
-				array[j] = array[j+1];
-				array[j+1] = temp;
-			}
+	int key = start;
+	int i = start+1;
+	int j = end;
+	int temp;
+	
+	while(i<=j){ 
+		while(data[i] <= data[key]){
+			i++;
+		}
+		while(data[j]>=data[key] && j>start){
+			j--;
+		}
+		
+		if(i>j){
+			temp = data[j];
+			data[j] = data[key];
+			data[key] = temp;
+		}else{
+			temp = data[j];
+			data[j] = data[i];
+			data[i] = temp;
 		}
 	}
+	quickSort(data,start,j-1);
+	quickSort(data,j+1,end);
+}
+
+int main(void){
+	quickSort(data,0,number-1);
 	
-	for(i=0;i<10;i++){
-		printf("%d ", array[i]);
+	for(int i=0;i<number;i++){
+		printf("%d ",data[i]);
 	}
+	return 0;
 }
