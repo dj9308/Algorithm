@@ -12,7 +12,7 @@ class Student {
 			this->score = score;
 		}
 		// 점수가 작은 순서 
-		bool operator<(Student &student){  // 왼쪽이 오른쪽보다 작다는 꺾쇠 삽입 오른쪽이어야 함. 
+		bool operator<(Student &student){  // 왼쪽이 오른쪽보다 작다는 꺾쇠. 삽입 오른쪽이어야 함. 
 			return this -> score > student.score;  //C언어는 기본적으로 내부 변수를 화살표로 가리킴 
 		}
 };

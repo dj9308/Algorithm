@@ -4,7 +4,7 @@
 using namespace std;
 
 bool compare(int a, int b){
-	return a>b; // a가 b보다 작을 때 우선적을 정렬(true값 반환);
+	return a<b; // a가 b보다 작을 때 우선적을 정렬(true값 반환);
 	//작은 값이 앞으로 감 : 오름차순 
 }
 

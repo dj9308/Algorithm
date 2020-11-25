@@ -276,7 +276,103 @@
 - C++ 문법에선 다양한 라이브러리가 존재하기 때문이다. STL 라이브러리가 여기 속한다.
 - STL 라이브러리에 sort함수가 속한다.
 
+```c++
+#include <iostream>
+#include <algorithm>
 
+using namespace std;
+
+class Student {
+	public:
+		string name;
+		int score;
+		Student(string name, int score){  //초기화 함수 
+			this->name = name;
+			this->score = score;
+		}
+		// 점수가 작은 순서 
+		bool operator<(Student &student){  // 왼쪽이 오른쪽보다 작다는 꺾쇠. 삽입 오른쪽이어야 함. 
+			return this -> score > student.score;  //C언어는 기본적으로 내부 변수를 화살표로 가리킴 
+		}
+};
+
+int main(void){
+	Student students[] = {
+		Student("설동재",99),
+		Student("박건호",85),
+		Student("권민균",95),
+		Student("민용학",80),
+		Student("김정현",80),
+	};
+	sort(students,students+5);
+	for(int i=0;i<5;i++){
+		cout << students[i].name << ' ';
+	}; 
+	return 0;
+}
+```
+
+- 클래스를 정의하는 방식은 프로그래밍 속도 측면에서 별로 유리하지 않기 때문에 페어(Pair) 라이브러리를 사용한다.
+
+```c++
+#include <iostream> // C++ 라이브러리
+#include <vector>	// C++ 사용시 벡터 라이브러리도 주로 쓰인다. 
+#include <algorithm>
+
+using namespace std;  // C++ 문법 사용하기 
+
+int main(void){
+	// vector와 Pair를 이용해 클래스 설정 필요 없이 코딩 가능하다. 
+	vector<pair<int, string> > v;   // Pair로 쌍을 이뤄 구성하게 한다   > > : 띄워써야 한다. 
+	v.push_back(pair<int, string>(90,"설동재")); // push_back: 벡터에 데이터 삽입 
+	v.push_back(pair<int, string>(85,"박건호"));
+	v.push_back(pair<int, string>(82,"박찬우"));
+	v.push_back(pair<int, string>(98,"권민균"));
+	v.push_back(pair<int, string>(79,"김정현"));
+	
+	for(int i=0;i<v.size();i++){
+		cout << v[i].second <<' ';	// second: vector의 두번째 값 
+	} 
+}
+```
+
+- 주로 이렇게 소스코드의 길이를 짧게 해주는 기법을 숏코딩(Short Coding)이라고 한다.
+- 작성한 소스코드의 시간 복잡도가 동일하다면, 프로그래밍 대회에서는 소스코드가 짧을 수록 남들보다 앞설 수 있다.
+- Vector STL은 마치 배열과 같이 작동하는데 원소를 선택적으로 삽입(push) 및 삭제(Pop)을 할 수 있다. 즉 단순한 배열을 보다 사용하기 쉽게 개편한 자료구조라고 할 수 있다.
+- 페어(Pair) STL은 한 쌍의 데이터를 처리할 수 있도록 해주는 자료구조라고 할 수 있다.
+- 이러한 STL을 적절하게 혼용하는 방법이 소스코드를 획기적으로 단축시킬 수 있다.
+
+```c++
+#include <iostream>
+#include <vector>	 
+#include <algorithm>
+
+using namespace std;  
+
+bool compare(pair<string, pair<int,int> > a, pair<string, pair<int,int> > b){
+	if(a.second.first == b.second.first){
+		return a.second.second > b.second.second;
+	}else{
+		return a.second.first > b.second.first;
+	}
+}
+
+int main(void){
+	vector<pair<string,pair<int,int> > > v; 
+	v.push_back(pair<string,pair<int,int> >("설동재",pair<int,int>(90,19930830)));
+	v.push_back(pair<string,pair<int,int> >("박건호",pair<int,int>(88,19940118)));
+	v.push_back(pair<string,pair<int,int> >("권민균",pair<int,int>(90,19930629)));
+	v.push_back(pair<string,pair<int,int> >("김정현",pair<int,int>(78,19931118)));
+	v.push_back(pair<string,pair<int,int> >("박찬우",pair<int,int>(70,19940101)));
+	// pair로 쓰기 복잡하면 class를 쓰면 된다. 
+	
+	sort(v.begin(),v.end(),compare);
+	
+	for(int i=0;i<v.size();i++){
+		cout << v[i].first <<' ';	// second: vector의 두번째 값 
+	} 
+}
+```
 
 
 
