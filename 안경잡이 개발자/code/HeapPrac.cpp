@@ -8,7 +8,7 @@ int main(void){
 		int c = i;
 		do{
 			int root = (c-1)/2;
-			if(heap[root] < heap[c]){
+			if(heap[root]<heap[c]){
 				int temp = heap[root];
 				heap[root] = heap[c];
 				heap[c] = temp;
@@ -24,10 +24,11 @@ int main(void){
 		int root = 0;
 		int c = 1;
 		do{
-			c = 2*root+1;
+			c = root*2+1;
 			if(heap[c]<heap[c+1] && c<i-1){
 				c++;
 			}
+			
 			if(heap[root]<heap[c] && c<i){
 				temp = heap[root];
 				heap[root] = heap[c];
