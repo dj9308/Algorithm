@@ -18,10 +18,8 @@ int main(void){
 	}
 	
 	for(int i=0;i<5;i++){
-		if(count[i]!=0){
-			for(int j=0;j<count[i];j++){
-				printf("%d",i+1);
-			}
+		for(int j=0;j<count[i];j++){
+			printf("%d",i+1);
 		}
 	}
 	return 0;
