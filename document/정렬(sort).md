@@ -463,6 +463,7 @@ int main(void){
 		printf("%d ",heap[i]);
 	}
 }
+// root와 leaf노드 교환 후 heapify를 실행할 때, c의 범위를 정하는걸 잘 생각해야한다.
 ```
 
 
