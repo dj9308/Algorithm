@@ -8,27 +8,27 @@ int main(void){
 		int c = i;
 		do{
 			int root = (c-1)/2;
-			if(heap[root]<heap[c]){
+			if(heap[root] < heap[c]){
 				int temp = heap[root];
 				heap[root] = heap[c];
 				heap[c] = temp;
 			}
 			c = root;
-		}while(c!=0);
+		}while(c>0);
 	}
 	for(int i=number-1;i>=0;i--){
-		int temp = heap[0];
-		heap[0] = heap[i];
-		heap[i] = temp;
+		int temp = heap[i];
+		heap[i] = heap[0];
+		heap[0] = temp;
 		int root = 0;
 		int c= 1;
 		do{
-			c = (root*2)+1;
+			c= (root*2)+1;
 			if(heap[c]<heap[c+1] && c<i-1){
 				c++;
 			}
-			if(heap[root]<heap[c] && c<i){
-				int temp = heap[root];
+			if(heap[root]<heap[c] && c<i){   
+				temp = heap[root];
 				heap[root] = heap[c];
 				heap[c] = temp;
 			}
