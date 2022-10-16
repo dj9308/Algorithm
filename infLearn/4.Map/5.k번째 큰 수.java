@@ -1,27 +1,40 @@
-package algorithm;
-
 import java.util.Scanner;
+import java.util.TreeSet;
 
 public class Main {
-	public int solution(String input1, String input2) {
-		int answer = 0;
-		char[] array = input1.toCharArray();
+    public int solution(int[] arr, int n, int k) {
+        int answer = -1;
+        TreeSet<Integer> Tset = new TreeSet<>();
 
-		for (int i = 0; i < array.length; i++) {
-			
-		}
+        for (int i = 0; i < n; i++) {
+            for (int j= i + 1; j < n; j++) {
+                for (int l= j + 1; l < n; j++) {
+                    Tset.add(arr[i]+arr[j]+arr[l]);
+                }
+            }
+        }
 
-		return answer;
+        int cnt = 0;
 
-	}
+        for(int x : Tset){
+            System.out.println(x);
+            cnt++;
+            if(cnt == k) return x;
+        }
+        return answer;
+    }
 
-	public static void main(String[] args) {
-		Main main = new Main();
-		Scanner in = new Scanner(System.in);
-		String input1 = in.nextLine();
-		String input2 = in.nextLine();
+    public static void main(String[] args) {
+        Main main = new Main();
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int k = in.nextInt();
+        int[] ary = new int[n];
 
-		System.out.println(main.solution(input1, input2));
+        for (int i = 0; i < n; i++) {
+            ary[i] = in.nextInt();
+        }
 
-	}
+        System.out.println(main.solution(ary, n, k));
+    }
 }
