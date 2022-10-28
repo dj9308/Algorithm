@@ -1,48 +1,39 @@
-package algorithm;
-
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
-	public int solution(int n, int m, int[] array) {
-		int answer = 0;
-		Queue<Integer> queue = new LinkedList<Integer>();
+    public int solution(String a, String b) {
+        int answer = 0;
 
-		for (int i = 0; i < n; i++) {
-			queue.add(array[i]);
-		}
+        HashMap<Character,Integer> am = new HashMap<>();
+        HashMap<Character,Integer> bm = new HashMap<>();
 
-		int qSize = queue.size();
-		int max = queue.poll();
-		int cnt = 0;
-		boolean maxChk = false;
+        for(char x : b.toCharArray()) bm.put(x, bm.getOrDefault(x,0)+1);
 
-		for (int i = 0; i < qSize; i++) {
-			int num = queue.poll();
-			if (num > max) {
-				maxChk = true;
-			}
-			queue.add(num);
-		}
+        int l = b.length()-1;
 
-		return answer;
+        for(int i =0; i<l;i++) {
+            am.put(a.charAt(i), am.getOrDefault(a.charAt(i),0)+1);
+            int lt = 0;
 
-	}
+            for(int rt = l; rt<a.length(); rt++){
+                am.put(a.charAt(rt), am.getOrDefault(a.charAt(i),0)+1);
+                if(am.equals(bm)) answer++;
+                am.put(a.charAt(lt), am.get(a.charAt(lt))-1);
+                if(am.get(a.charAt(lt))==0) am.remove(a.charAt(lt));
+                lt++;
+            }
+        }
+        return answer;
+    }
 
-	public static void main(String[] args) {
-		Main main = new Main();
-		Scanner in = new Scanner(System.in);
+    public static void main(String[] args) {
+        Main main = new Main();
+        Scanner in = new Scanner(System.in);
+        String a= in.next();
+        String b = in.next();
 
-		int n = in.nextInt();
-		int m = in.nextInt();
-		int[] ary = new int[n];
-
-		for (int i = 0; i < n; i++) {
-			ary[i] = in.nextInt();
-		}
-
-		System.out.println(main.solution(n, m, ary));
-
-	}
+        System.out.println(main.solution(a, b));
+    }
 }
